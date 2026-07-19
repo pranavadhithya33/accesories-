@@ -2,20 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 340 100% 98%; /* #FFF0F5 */
+    --foreground: 7 28% 23%; /* #4A2C2A */
+    
+    --card: 342 100% 95%; /* #FFE4EC */
+    --card-foreground: 7 28% 23%;
+    
+    --popover: 340 100% 98%;
+    --popover-foreground: 7 28% 23%;
+    
+    --primary: 334 100% 72%; /* #FF6FAE */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 342 100% 95%; /* #FFE4EC */
+    --secondary-foreground: 7 28% 23%;
+    
+    --muted: 0 11% 49%; /* #8B6F6F mapping roughly */
+    --muted-foreground: 7 28% 23%;
+    
+    --accent: 327 100% 54%; /* #FF1493 - CTA */
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 340 100% 93%; /* #FFD9E6 */
+    --input: 340 100% 93%;
+    --ring: 334 100% 72%;
+    
+    --success: 167 67% 84%; /* #B9F2E6 */
+    --success-foreground: 167 70% 20%;
+    
+    --discount: 43 100% 83%; /* #FFE7A8 */
+    --discount-foreground: 43 70% 20%;
+    
+    --radius: 1rem; /* rounded-2xl */
+  }
+
+  .dark {
+    --background: 7 28% 10%;
+    --foreground: 340 100% 98%;
+    
+    --card: 7 28% 15%;
+    --card-foreground: 340 100% 98%;
+    
+    --popover: 7 28% 15%;
+    --popover-foreground: 340 100% 98%;
+    
+    --primary: 334 100% 72%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 7 28% 20%;
+    --secondary-foreground: 340 100% 98%;
+    
+    --muted: 7 28% 20%;
+    --muted-foreground: 0 11% 70%;
+    
+    --accent: 327 100% 54%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 7 28% 20%;
+    --input: 7 28% 20%;
+    --ring: 334 100% 72%;
+    
+    --success: 167 67% 30%;
+    --success-foreground: 167 70% 90%;
+    
+    --discount: 43 100% 30%;
+    --discount-foreground: 43 70% 90%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
 }
