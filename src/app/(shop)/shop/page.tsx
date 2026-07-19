@@ -1,6 +1,11 @@
 import { ProductCard } from "@/components/product/ProductCard";
 import { supabase } from "@/lib/db/supabase";
 
+export const metadata = {
+  title: "Shop Mobile Accessories | Cases, Chargers, Screen Guards",
+  description: "Browse our extensive collection of mobile accessories, cases, chargers, and screen guards.",
+};
+
 export const revalidate = 3600; // ISR for shop page
 
 // Using Next.js 15 searchParams is a Promise

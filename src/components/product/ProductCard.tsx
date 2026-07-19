@@ -42,7 +42,7 @@ export function ProductCard({ product }: ProductCardProps) {
         {/* Placeholder for now since we might not have a real Cloudinary image configured yet */}
         <div className="absolute inset-0 flex items-center justify-center bg-muted/20 text-muted-foreground text-sm">
           {product.image ? (
-            <img src={product.image} alt={product.name} className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110" />
+            <Image src={product.image} alt={product.name} fill className="object-cover transition-transform duration-500 group-hover:scale-110" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" loading="lazy" />
           ) : (
             "Image Placeholder"
           )}

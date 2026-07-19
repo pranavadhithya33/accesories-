@@ -14,9 +14,26 @@ const poppins = Poppins({
   weight: ["600", "700", "800"],
 });
 
+import { Toaster } from "@/components/ui/sonner";
+
 export const metadata: Metadata = {
-  title: "Accessories Store",
-  description: "Premium Accessories, Direct Prices",
+  title: {
+    template: "%s | Only Gadjets",
+    default: "Only Gadjets Accessories | Premium Phone Cases, Chargers & More",
+  },
+  description: "Shop premium mobile accessories, cases, chargers, and screen guards at the best prices.",
+  openGraph: {
+    title: "Only Gadjets Accessories",
+    description: "Premium mobile accessories and gadgets.",
+    type: "website",
+    url: "https://bubblegum-accessories.vercel.app",
+    siteName: "Only Gadjets",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Only Gadjets Accessories",
+    description: "Premium mobile accessories and gadgets.",
+  }
 };
 
 export default function RootLayout({
@@ -30,6 +47,7 @@ export default function RootLayout({
         className={`${inter.variable} ${poppins.variable} font-sans antialiased bg-background text-foreground`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );
