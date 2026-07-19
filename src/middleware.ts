@@ -6,12 +6,12 @@ import { decrypt } from "@/lib/auth/jwt";
 const protectedRoutes = ["/account", "/orders", "/admin"];
 
 // Routes that require admin role
-const adminRoutes = ["/admin/dashboard", "/admin/products", "/admin/orders"];
+const adminRoutes = ["/admin/dashboard", "/admin/products", "/admin/orders", "/admin/reviews", "/admin/content", "/admin/customers"];
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   
-  const isProtected = protectedRoutes.some(route => pathname.startsWith(route) && pathname !== "/admin/login");
+  const isProtected = protectedRoutes.some(route => pathname.startsWith(route) && !pathname.startsWith("/admin"));
   const isAdmin = adminRoutes.some(route => pathname.startsWith(route));
 
   if (isProtected || isAdmin) {
